@@ -68,4 +68,11 @@ class AuthController extends Controller
         return view('posts.index', compact('data'), ['posts' => Post::all()]);
     }
 
+    public function logout(){
+        if(Session::has('loginId')) {
+            Session::pull('loginId');
+            return redirect('login');
+        }
+    }
+
 }

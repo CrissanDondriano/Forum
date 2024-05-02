@@ -12,7 +12,7 @@ Route::get('/login', [AuthController::class, 'login'])->name('login');
 Route::get('/registration', [AuthController::class, 'registration'])->name('registration');
 Route::post('/register-user', [AuthController::class, 'registerUser'])->name('register-user');
 Route::post('/login-user', [AuthController::class, 'loginUser'])->name('login-user');
-
+Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 // Route for Posts
 Route::get('/posts/create', function() {
     return view('posts.create');
