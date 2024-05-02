@@ -6,7 +6,7 @@
     <div class="container">
         <h1>Edit Post</h1>
         <form action="{{ route('update', $post->id) }}" method="POST">
-            <!-- the @csrf and method are Laravel directives that prevent Cross-Site Request Forgery attacks -->
+            <!-- the csrf and method are Laravel directives that prevent Cross-Site Request Forgery attacks -->
             @csrf
             @method('PUT')
             <div class="form-group">

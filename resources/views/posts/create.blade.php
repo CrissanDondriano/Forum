@@ -6,7 +6,7 @@
     <div class="container">
         <h1>Create New Post</h1>
         <form action="{{ route('create') }}" method="POST">
-            <!-- the @csrf directive is used to prevent cross-site request forgery -->
+            <!-- the csrf directive is used to prevent cross-site request forgery -->
             @csrf
             <div class="form-group">
                 <label for="title">Title</label>
