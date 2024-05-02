@@ -10,6 +10,7 @@ Route::get('/', function () {
 
 Route::get('/login', [AuthController::class, 'login'])->name('login');
 Route::get('/registration', [AuthController::class, 'registration'])->name('registration');
+Route::post('/register-user', [AuthController::class, 'registerUser'])->name('register-user');
 
 // Route for Posts
 Route::get('/posts/create', function() {

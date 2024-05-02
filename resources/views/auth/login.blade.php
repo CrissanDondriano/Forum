@@ -29,8 +29,10 @@
                             value="">
                     </div>
                     <div class="form-group">
-                        <button class="btn btn-block btn-primary" type="submit">Register</button>
+                        <button class="btn btn-block btn-primary" type="submit">Login</button>
                     </div>
+                    <br>
+                    <p>Don't have an account? <a href="registration">Sign Up</a></p>
                 </form>
             </div>
         </div>
