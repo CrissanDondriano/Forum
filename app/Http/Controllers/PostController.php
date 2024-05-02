@@ -7,11 +7,6 @@ use App\Models\Post;
 
 class PostController extends Controller
 {
-    public function index()
-    {
-        return view('posts.index', ['posts' => Post::all()]);
-    }
-
     public function store(Request $request){
         //create an instance of the Post model and save the data
         $post = new Post();

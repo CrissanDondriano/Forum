@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Post;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
@@ -36,4 +38,34 @@ class AuthController extends Controller
         }
 
     }
+
+    public function loginUser(Request $request) {
+        $request->validate([
+            'email' => 'required|email',
+            'password' => 'required|min:6|max:12'
+        ]);
+
+        $user = User::where('email', '=', $request->email)->first();
+
+        if($user) { 
+            if (Hash::check($request->password, $user->password)) {
+                $request->session()->put('loginId', $user->id);
+                return redirect('posts');
+            } else {
+                return back()->with('fail', 'Incorrect password');
+            }
+        } else {
+            return back()->with('fail','No account found for this email');
+        }
+    }
+
+    public function index()
+    {
+        $data = array();
+        if(Session::has('loginId')){
+            $data = User::where('id', '=' , Session::get('loginId'))->first();
+        }
+        return view('posts.index', compact('data'), ['posts' => Post::all()]);
+    }
+
 }

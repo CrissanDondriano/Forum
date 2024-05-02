@@ -17,16 +17,33 @@
             <div class="col-md-4 col-md-offeset-4" style="margin-top: 20px">
                 <h4>Login</h4>
                 <hr>
-                <form action="">
+                <form action="{{ route('login-user') }}" method="POST">
+                    @if (Session::has('success'))
+                        <div class="alert alert-success">{{ Session::get('success') }}</div>
+                    @endif
+                    @if (Session::has('fail'))
+                        <div class="alert alert-danger">{{ Session::get('fail') }}</div>
+                    @endif
+                    @csrf
                     <div class="form-group">
                         <label for="email">Email</label>
                         <input type="email" class="form-control" placeholder="Enter Email" name="email"
-                            value="">
+                            value="{{ old('email') }}">
+                        <span class="text-danger">
+                            @error('email')
+                                {{ $message }}
+                            @enderror
+                        </span>
                     </div>
                     <div class="form-group">
                         <label for="password">Password</label>
                         <input type="password" class="form-control" placeholder="Enter Password" name="password"
-                            value="">
+                            value="{{ old('password') }}">
+                        <span class="text-danger">
+                            @error('password')
+                                {{ $message }}
+                            @enderror
+                        </span>
                     </div>
                     <div class="form-group">
                         <button class="btn btn-block btn-primary" type="submit">Login</button>
