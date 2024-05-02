@@ -59,15 +59,6 @@ class AuthController extends Controller
         }
     }
 
-    public function index()
-    {
-        $data = array();
-        if(Session::has('loginId')){
-            $data = User::where('id', '=' , Session::get('loginId'))->first();
-        }
-        return view('posts.index', compact('data'), ['posts' => Post::all()]);
-    }
-
     public function logout(){
         if(Session::has('loginId')) {
             Session::pull('loginId');
