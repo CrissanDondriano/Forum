@@ -12,6 +12,29 @@
 </head>
 
 <body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-md-offeset-4" style="margin-top: 20px">
+                <h4>Login</h4>
+                <hr>
+                <form action="">
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" placeholder="Enter Email" name="email"
+                            value="">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control" placeholder="Enter Password" name="password"
+                            value="">
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-block btn-primary" type="submit">Register</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
