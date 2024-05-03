@@ -28,7 +28,7 @@
                     @endif
                     @csrf
                     <div class="form-group">
-                        <label for="email" style="color: #FF5733; font-family: Arial, sans-serif; font-size: 16px;">Email</label>
+                        <label for="email" style="color: #007bff; font-family: Arial, sans-serif; font-size: 16px;">Email</label>
                         <input type="email" class="form-control" placeholder="Enter Email" name="email"
                             value="{{ old('email') }}">
                         <span class="text-danger">
@@ -38,7 +38,7 @@
                         </span>
                     </div>
                     <div class="form-group">
-                        <label for="password" style="color: #FF5733; font-family: Arial, sans-serif; font-size: 16px;">Password</label>
+                        <label for="password" style="color: #007bff; font-family: Arial, sans-serif; font-size: 16px;">Password</label>
                         <input type="password" class="form-control" placeholder="Enter Password" name="password"
                             value="{{ old('password') }}">
                         <span class="text-danger">
@@ -75,25 +75,24 @@
 
 .title{
     text-align: center;
-    color: #FF5733;
+    color: #007bff;
     font-family: Arial, sans-serif;
     font-weight: bold;
 }
 
 .btn {
-    background-color: #FF5733;
-    border: #FF5733;
+    background-color: #007bff;
+    border: #007bff;
 }
 
 .btn:hover {
-    background-color:#771702;
+    background-color:#073363;
     color: black;
 }
 
 .link_color{
-    color: #FF5733;
+    color: #007bff;
 }
-
 
 
 </style>
