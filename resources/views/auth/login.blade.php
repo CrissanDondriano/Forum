@@ -15,7 +15,9 @@
     <div class="container">
         <div class="row">
             <div class="col-md-4 col-md-offeset-4" style="margin-top: 20px">
-                <h4>Login</h4>
+                <div class="title">
+                <h1>Login</h1>
+                </div>
                 <hr>
                 <form action="{{ route('login-user') }}" method="POST">
                     @if (Session::has('success'))
@@ -26,7 +28,7 @@
                     @endif
                     @csrf
                     <div class="form-group">
-                        <label for="email">Email</label>
+                        <label for="email" style="color: #FF5733; font-family: Arial, sans-serif; font-size: 16px;">Email</label>
                         <input type="email" class="form-control" placeholder="Enter Email" name="email"
                             value="{{ old('email') }}">
                         <span class="text-danger">
@@ -36,7 +38,7 @@
                         </span>
                     </div>
                     <div class="form-group">
-                        <label for="password">Password</label>
+                        <label for="password" style="color: #FF5733; font-family: Arial, sans-serif; font-size: 16px;">Password</label>
                         <input type="password" class="form-control" placeholder="Enter Password" name="password"
                             value="{{ old('password') }}">
                         <span class="text-danger">
@@ -49,7 +51,7 @@
                         <button class="btn btn-block btn-primary" type="submit">Login</button>
                     </div>
                     <br>
-                    <p>Don't have an account? <a href="registration">Sign Up</a></p>
+                    <p>Don't have an account? <a href="registration" class="link_color">Sign Up</a></p>
                 </form>
             </div>
         </div>
@@ -66,11 +68,31 @@
 <style>
 
 .container{
-    margin-top: 50px;
-    background-color: rgb(9, 151, 156);
+    margin-top: 20px;
+    padding: 40px;
+    width: 40%;
 }
 
+.title{
+    text-align: center;
+    color: #FF5733;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+}
 
+.btn {
+    background-color: #FF5733;
+    border: #FF5733;
+}
+
+.btn:hover {
+    background-color:#771702;
+    color: black;
+}
+
+.link_color{
+    color: #FF5733;
+}
 
 
 
