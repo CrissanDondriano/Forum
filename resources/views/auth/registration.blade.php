@@ -12,6 +12,7 @@
 </head>
 
 <body>
+    <!-- Registration tab -->
     <div class="container">
         <div class="row">
             <div class="col-md-4 col-md-offeset-4" style="margin-top: 20px">
@@ -25,6 +26,8 @@
                         <div class="alert alert-danger">{{ Session::get('fail') }}</div>
                     @endif
                     @csrf
+
+                    <!-- Entering the full name -->
                     <div class="form-group">
                         <label for="name">Full Name</label>
                         <input type="text" class="form-control" placeholder="Enter Full Name" name="name"
@@ -35,6 +38,8 @@
                             @enderror
                         </span>
                     </div>
+
+                    <!-- Entering the email -->
                     <div class="form-group">
                         <label for="email">Email</label>
                         <input type="email" class="form-control" placeholder="Enter Email" name="email"
@@ -45,6 +50,8 @@
                             @enderror
                         </span>
                     </div>
+
+                    <!-- Entering the password -->
                     <div class="form-group">
                         <label for="password">Password</label>
                         <input type="password" class="form-control" placeholder="Enter Password" name="password"
@@ -55,6 +62,8 @@
                             @enderror
                         </span>
                     </div>
+
+                    <!-- Register confirmation -->
                     <div class="form-group">
                         <button class="btn btn-block btn-primary" type="submit">Register</button>
                     </div>
