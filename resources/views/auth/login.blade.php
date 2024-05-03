@@ -9,50 +9,108 @@
 
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            margin-top: 50px;
+        }
+
+        .card {
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-header {
+            background-color: #007bff;
+            color: #fff;
+            text-align: center;
+            border-radius: 10px 10px 0 0;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-control {
+            border-radius: 25px;
+        }
+
+        .btn-primary {
+            border-radius: 25px;
+        }
+
+        .alert {
+            border-radius: 25px;
+        }
+
+        p {
+            text-align: center;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 
 <body>
     <div class="container">
-        <div class="row">
-            <div class="col-md-4 col-md-offeset-4" style="margin-top: 20px">
-                <div class="title">
-                <h1>Login</h1>
+        <div class="row justify-content-center">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Login</h4>
+                    </div>
+                    <div class="card-body">
+                        <form action="{{ route('login-user') }}" method="POST">
+                            @if (Session::has('success'))
+                                <div class="alert alert-success">{{ Session::get('success') }}</div>
+                            @endif
+                            @if (Session::has('fail'))
+                                <div class="alert alert-danger">{{ Session::get('fail') }}</div>
+                            @endif
+                            @csrf
+                            <div class="form-group">
+                                <label for="email"
+                                    style="color: #007bff; font-family: Arial, sans-serif; font-size: 16px;">Email</label>
+                                <input type="email" class="form-control" placeholder="Enter Email" name="email"
+                                    value="{{ old('email') }}">
+                                <span class="text-danger">
+                                    @error('email')
+                                        {{ $message }}
+                                    @enderror
+                                </span>
+                            </div>
+                            <div class="form-group">
+                                <label for="password"
+                                    style="color: #007bff; font-family: Arial, sans-serif; font-size: 16px;">Password</label>
+                                <input type="password" class="form-control" placeholder="Enter Password" name="password"
+                                    value="{{ old('password') }}">
+                                <span class="text-danger">
+                                    @error('password')
+                                        {{ $message }}
+                                    @enderror
+                                </span>
+                            </div>
+                            <div class="form-group">
+                                <button class="btn btn-block btn-primary" type="submit">Login</button>
+                            </div>
+                            <br>
+                            <p>Don't have an account? <a href="registration" class="link_color">Sign Up</a></p>
+                        </form>
+                    </div>
                 </div>
-                <hr>
-                <form action="{{ route('login-user') }}" method="POST">
-                    @if (Session::has('success'))
-                        <div class="alert alert-success">{{ Session::get('success') }}</div>
-                    @endif
-                    @if (Session::has('fail'))
-                        <div class="alert alert-danger">{{ Session::get('fail') }}</div>
-                    @endif
-                    @csrf
-                    <div class="form-group">
-                        <label for="email" style="color: #007bff; font-family: Arial, sans-serif; font-size: 16px;">Email</label>
-                        <input type="email" class="form-control" placeholder="Enter Email" name="email"
-                            value="{{ old('email') }}">
-                        <span class="text-danger">
-                            @error('email')
-                                {{ $message }}
-                            @enderror
-                        </span>
-                    </div>
-                    <div class="form-group">
-                        <label for="password" style="color: #007bff; font-family: Arial, sans-serif; font-size: 16px;">Password</label>
-                        <input type="password" class="form-control" placeholder="Enter Password" name="password"
-                            value="{{ old('password') }}">
-                        <span class="text-danger">
-                            @error('password')
-                                {{ $message }}
-                            @enderror
-                        </span>
-                    </div>
-                    <div class="form-group">
-                        <button class="btn btn-block btn-primary" type="submit">Login</button>
-                    </div>
-                    <br>
-                    <p>Don't have an account? <a href="registration" class="link_color">Sign Up</a></p>
-                </form>
             </div>
         </div>
     </div>
@@ -63,40 +121,3 @@
 </body>
 
 </html>
-
-
-<style>
-
-.container{
-    margin-top: 20px;
-    padding: 40px;
-    width: 40%;
-}
-
-.title{
-    text-align: center;
-    color: #007bff;
-    font-family: Arial, sans-serif;
-    font-weight: bold;
-}
-
-.btn {
-    background-color: #007bff;
-    border: #007bff;
-}
-
-.btn:hover {
-    background-color:#073363;
-    color: black;
-}
-
-.link_color{
-    color: #007bff;
-}
-
-
-</style>
-
-
-
-
